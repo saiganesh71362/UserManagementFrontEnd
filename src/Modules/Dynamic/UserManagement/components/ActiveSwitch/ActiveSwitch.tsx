@@ -3,35 +3,24 @@ import NavbarMain from "../../../../Utils/NavbarMain/NavbarMain";
 import { UserManagementService } from "../../Services/UserManagmentService";
 import { useParams, useNavigate } from "react-router-dom";
 
-interface IUser {
-  email?: string;
-  // other properties...
-}
-
 const ActiveSwitch: React.FC = () => {
   const { userId } = useParams();
-  const { status } = useParams();
+  let { status } = useParams();
   const id = Number(userId);
   const navigate = useNavigate();
 
   // Assuming email is passed as a prop or accessible through context
-  const email = ""; // Placeholder, replace with actual value
 
   useEffect(() => {
-    let updatedStatus: string;
     if (status == null) {
-      updatedStatus = "Y";
+      status = "Y";
     } else if (status == "Y") {
-      updatedStatus = "N";
+      status = "N";
     } else {
-      updatedStatus = "Y";
-    }
-    const userObject: Partial<IUser> = { activeSwitch: updatedStatus };
-    if (email) {
-      userObject.email = email;
+      status = "Y";
     }
 
-    UserManagementService.updateUser(id, userObject)
+    UserManagementService.statusChange(id, status)
       .then((response) => {
         if (response.data) {
           navigate("/viewAccounts");
@@ -41,7 +30,7 @@ const ActiveSwitch: React.FC = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, [id, status, navigate, email]); // Added email to the dependency array
+  }, []); // Added email to the dependency array
 
   return (
     <>
