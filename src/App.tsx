@@ -54,7 +54,7 @@ const App: React.FC = () => {
             element={<DeleteAccount />}
           ></Route>
           <Route
-            path="/activeSwitch/:userId/:status?"
+            path="/activeSwitch/:userId/:currentStatus"
             element={<ActiveSwitch />}
           ></Route>
         </Routes>
