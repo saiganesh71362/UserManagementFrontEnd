@@ -32,9 +32,10 @@ const DeleteAccount: React.FC = () => {
         }
       })
       .catch((error) => {
-        console.log(error);
+        console.error("Error deleting user:", error);
+        // Add error handling here, such as showing an error message to the user
       });
-  }); // Empty dependency array
+  }, [id, navigate]); // Empty dependency array
 
   return (
     <>
@@ -53,7 +54,6 @@ const DeleteAccount: React.FC = () => {
         theme="dark"
         toastClassName="bounce"
       />
-      
     </>
   );
 };

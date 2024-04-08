@@ -22,36 +22,44 @@ import UpdateAccount from "./Modules/Dynamic/UserManagement/components/UpdateAcc
 
 const App: React.FC = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/register" element={<Registration />} />
-        <Route path="/dashboard" element={<DashBoard />}></Route>
-        <Route path="/create-plan" element={<CreatePlan />} />
-        <Route path="/view-plans" element={<ViewPlans />} />
-        <Route path="/update-plan/:planId" element={<UpdatePln />} />
-        <Route path="/delete-plan/:planId" element={<DeletePlan />} />
-        <Route path="/active-plan/:planId/:status?" element={<ActivePlan />} />
-        {/* --------------Reports Module-2 -----------------*/}
-        <Route path="/reports" element={<Reports />} />
-        <Route path="/login" element={<Login />}></Route>
-        <Route
-          path="/forgotPassword"
-          element={<ForgotPassword></ForgotPassword>}
-        ></Route>
-        <Route path="/active" element={<Active />}></Route>
-        <Route path="/viewAccounts" element={<ViewAccounts />}></Route>
-        <Route
-          path="/updateAccount/:userId"
-          element={<UpdateAccount />}
-        ></Route>
-        <Route
-          path="/deleteAccount/:userId"
-          element={<DeleteAccount />}
-        ></Route>
-        <Route path="/activeSwitch" element={<ActiveSwitch />}></Route>
-      </Routes>
-    </BrowserRouter>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/register" element={<Registration />} />
+          <Route path="/dashboard" element={<DashBoard />}></Route>
+          <Route path="/create-plan" element={<CreatePlan />} />
+          <Route path="/view-plans" element={<ViewPlans />} />
+          <Route path="/update-plan/:planId" element={<UpdatePln />} />
+          <Route path="/delete-plan/:planId" element={<DeletePlan />} />
+          <Route
+            path="/active-plan/:planId/:status?"
+            element={<ActivePlan />}
+          />
+          {/* --------------Reports Module-2 -----------------*/}
+          <Route path="/reports" element={<Reports />} />
+          <Route path="/login" element={<Login />}></Route>
+          <Route
+            path="/forgotPassword"
+            element={<ForgotPassword></ForgotPassword>}
+          ></Route>
+          <Route path="/active" element={<Active />}></Route>
+          <Route path="/viewAccounts" element={<ViewAccounts />}></Route>
+          <Route
+            path="/updateAccount/:userId"
+            element={<UpdateAccount />}
+          ></Route>
+          <Route
+            path="/deleteAccount/:userId"
+            element={<DeleteAccount />}
+          ></Route>
+          <Route
+            path="/activeSwitch/:userId/:status?"
+            element={<ActiveSwitch />}
+          ></Route>
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 };
 

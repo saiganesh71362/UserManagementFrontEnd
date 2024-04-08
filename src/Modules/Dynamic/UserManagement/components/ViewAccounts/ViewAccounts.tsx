@@ -86,15 +86,18 @@ const ViewAccounts: React.FC = () => {
                       </Link>
                     </td>
                     <td>
-                      {data.accStatus === null && (
+                      {data.accStatus == null && (
                         <Link
                           to={`/active-plan/${data.userId}/${data.accStatus}`}
                           className="btn btn-secondary"
                         >
-                          <i className="bi bi-circle"></i>
+                          <i className="bi bi-circle">
+                            {/* <pre>{JSON.stringify(plan.activeSwitch)}</pre> */}
+                          </i>
                         </Link>
                       )}
-                      {data.accStatus === "Y" && (
+
+                      {data.accStatus == "Y" && (
                         <Link
                           to={`/active-plan/${data.userId}/${data.accStatus}`}
                           className="btn btn-danger"
@@ -102,7 +105,7 @@ const ViewAccounts: React.FC = () => {
                           <i className="bi bi-check-circle"></i>
                         </Link>
                       )}
-                      {data.accStatus === "N" && (
+                      {data.accStatus == "N" && (
                         <Link
                           to={`/active-plan/${data.userId}/${data.accStatus}`}
                           className="btn btn-success"
